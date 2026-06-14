@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bioética & Direito: Aula dos 11 Textos Fundamentais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4ede0;
+    --bg-tint: #ebe2d1;
+    --ink: #1a2a2a;
+    --ink-soft: #3d4a4a;
+    --ink-muted: #6c7878;
+    --rule: #c9bfae;
+    --primary: #0d4a4a;
+    --primary-deep: #082f2f;
+    --accent: #c4541e;
+    --accent-soft: #e89b6f;
+    --gold: #b8893b;
+    --paper: #faf6ec;
+    --shadow: 0 1px 0 rgba(8,47,47,.04), 0 8px 24px -12px rgba(8,47,47,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+    font-feature-settings: "ss01", "ss02";
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(196,84,30,.04) 0, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(13,74,74,.05) 0, transparent 50%);
+  }
+
+  .frame {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 28px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+  .masthead::before {
+    content: "";
+    display: block;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    height: 6px;
+    margin-bottom: 22px;
+  }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    color: var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .kicker .episode {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 10px;
+    letter-spacing: .15em;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: .98;
+    letter-spacing: -.02em;
+    margin: 0 0 18px;
+    font-variation-settings: "opsz" 144;
+    color: var(--primary-deep);
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .standfirst {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.18rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 660px;
+    margin: 0 0 24px;
+  }
+  .byline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: .05em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .byline strong { color: var(--ink); font-weight: 500; }
+
+  /* ── ÍNDICE ── */
+  .toc {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+    margin-bottom: 56px;
+    box-shadow: var(--shadow);
+  }
+  .toc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: toc;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .toc ol li {
+    counter-increment: toc;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: .92rem;
+  }
+  .toc ol li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    flex: none;
+  }
+  .toc ol li a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--primary);
+  }
+  .toc ol li a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 72px; }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: .25em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.08;
+    letter-spacing: -.015em;
+    color: var(--primary-deep);
+    margin: 0 0 6px;
+    font-variation-settings: "opsz" 96;
+  }
+  .article-meta-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-muted);
+    letter-spacing: .08em;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+    text-transform: uppercase;
+  }
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.22rem;
+    color: var(--primary);
+    margin: 28px 0 10px;
+    letter-spacing: -.005em;
+  }
+  h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--accent);
+    margin: 24px 0 8px;
+    font-weight: 500;
+  }
+
+  p { margin: 0 0 16px; }
+  p.lead {
+    font-size: 1.06rem;
+    line-height: 1.65;
+  }
+  p.lead::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    float: left;
+    line-height: .85;
+    margin: 6px 10px -4px 0;
+    color: var(--accent);
+  }
+  strong { color: var(--primary-deep); font-weight: 600; }
+  em { color: var(--ink-soft); }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .callout .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.insight { border-left-color: var(--primary); }
+  .callout.insight .label { color: var(--primary); }
+  .callout.gold { border-left-color: var(--gold); }
+  .callout.gold .label { color: var(--gold); }
+
+  /* ── PULL QUOTE ── */
+  blockquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.45rem;
+    line-height: 1.35;
+    color: var(--primary-deep);
+    margin: 32px 0;
+    padding: 0 0 0 32px;
+    border-left: 2px solid var(--accent);
+    position: relative;
+  }
+  blockquote::before {
+    content: "\201C";
+    position: absolute;
+    left: -2px;
+    top: -28px;
+    font-size: 5rem;
+    color: var(--accent);
+    font-style: normal;
+    line-height: 1;
+  }
+  blockquote cite {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--ink-muted);
+    margin-top: 14px;
+  }
+
+  /* ── FIGURE / DIAGRAM ── */
+  figure {
+    margin: 32px 0;
+    padding: 28px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow);
+  }
+  figure svg { display: block; width: 100%; height: auto; }
+  figcaption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: var(--ink-muted);
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+    text-align: center;
+  }
+
+  /* ── LISTS ── */
+  ul, ol { padding-left: 1.5em; margin: 0 0 18px; }
+  li { margin-bottom: 8px; }
+  ol.protocol {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step;
+  }
+  ol.protocol li {
+    counter-increment: step;
+    padding-left: 56px;
+    position: relative;
+    margin-bottom: 18px;
+    min-height: 36px;
+  }
+  ol.protocol li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--primary);
+    color: var(--paper);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    letter-spacing: .05em;
+  }
+
+  /* ── COMPARISON GRID ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 28px 0;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+  .compare > div { padding: 22px 24px; }
+  .compare > div:first-child { border-right: 1px solid var(--rule); }
+  .compare h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    margin: 0 0 12px;
+  }
+  .compare .left h5 { color: var(--accent); }
+  .compare .right h5 { color: var(--primary); }
+  .compare ul { padding-left: 18px; margin: 0; }
+  .compare li { font-size: .92rem; }
+
+  /* ── DIVISOR DE GRUPO ── */
+  .group-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 64px 0 40px;
+  }
+  .group-divider::before, .group-divider::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid var(--rule);
+  }
+  .group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    background: var(--bg);
+    padding: 0 8px;
+  }
+
+  /* ── TAKEAWAYS ── */
+  .takeaways {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 36px;
+    margin-top: 56px;
+  }
+  .takeaways h2 {
+    color: var(--paper);
+    border-bottom: 1px solid rgba(244,237,224,.15);
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+  .takeaways .section-num { color: var(--accent-soft); }
+  .takeaways ol { padding-left: 0; list-style: none; counter-reset: tk; }
+  .takeaways ol li {
+    counter-increment: tk;
+    padding: 16px 0 16px 54px;
+    border-bottom: 1px solid rgba(244,237,224,.10);
+    position: relative;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  .takeaways ol li::before {
+    content: counter(tk);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--accent-soft);
+    line-height: 1;
+  }
+  .takeaways ol li:last-child { border-bottom: none; }
+  .takeaways strong { color: var(--accent-soft); }
+
+  /* ── SPEECH ── */
+  .speech { margin: 20px 0; border-left: 3px solid var(--rule); padding-left: 20px; }
+  .speech-line {
+    margin: 12px 0;
+    padding: 10px 14px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.45;
+    background: var(--paper);
+  }
+  .speech-line.bad { border-left: 3px solid var(--accent); color: var(--ink-soft); }
+  .speech-line.good { border-left: 3px solid var(--primary); }
+  .speech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .speech-line.bad .speech-tag { color: var(--accent); }
+  .speech-line.good .speech-tag { color: var(--primary); }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: .05em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .frame { padding: 40px 20px 64px; }
+    h1 { font-size: 2.2rem; }
+    .compare { grid-template-columns: 1fr; }
+    .compare > div:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .toc ol { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- ═══ MASTHEAD ═══ -->
+  <header class="masthead">
+    <div class="kicker">
+      <span>Síntese Didática · Bioética & Direito Médico</span>
+      <span class="episode">11 TEXTOS</span>
+    </div>
+    <h1>Bioética,<br>Aborto <em>&</em><br>Terminalidade</h1>
+    <p class="standfirst">Uma aula completa pelos 11 textos fundamentais sobre aborto legal, cuidados paliativos, terminalidade da vida e dilemas bioéticos — com teses, argumentos-chave e conexões entre os autores.</p>
+    <div class="byline">
+      <span><strong>Compilação analítica</strong> · Revisão acadêmica estruturada</span>
+      <span>Bioética · Direito · Saúde Pública · 2011–2026</span>
+    </div>
+  </header>
+
+  <!-- ═══ ÍNDICE ═══ -->
+  <div class="toc">
+    <span class="toc-title">Sumário — 11 textos em 3 grupos temáticos</span>
+    <ol>
+      <li><a href="#art01">Aborto Legal — análise decolonial (Pereira et al., 2025)</a></li>
+      <li><a href="#art02">Atenção Humanizada ao Abortamento — norma técnica MS (2011)</a></li>
+      <li><a href="#art03">Condutas Éticas no Cuidado ao Paciente Terminal</a></li>
+      <li><a href="#art04">Defensoria Pública e Aborto — estudo de caso RJ (Galli & Bonan, 2026)</a></li>
+      <li><a href="#art05">Alimentação e Hidratação Artificial no Fim da Vida</a></li>
+      <li><a href="#art06">Resolução RA 2320/2022 — CFM</a></li>
+      <li><a href="#art07">Morte Encefálica em Gestante — revisão de escopo</a></li>
+      <li><a href="#art08">Criminalização do Aborto e Saúde Pública (Santos et al., 2013)</a></li>
+      <li><a href="#art09">Alimentar a Morte ou Nutrir a Vida</a></li>
+      <li><a href="#art10">Prevenção e Tratamento da Violência Sexual — norma técnica MS (2012)</a></li>
+      <li><a href="#art11">Ética em Cuidados Paliativos (Paiva et al., 2014)</a></li>
+    </ol>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- GRUPO A — ABORTO, DIREITO & SAÚDE PÚBLICA         -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="group-divider"><span class="group-label">Grupo A — Aborto, Direito & Saúde Pública</span></div>
+
+  <!-- ART 01 -->
+  <section id="art01">
+    <span class="section-num">§ 01 — ARTIGO 1</span>
+    <h2>"Isso é coisa de polícia!" — Acesso ao Aborto Legal no Brasil</h2>
+    <div class="article-meta-line">Pereira, Labarrere & Gonzaga · UFMG · Sexualidad, Salud y Sociedad · 2025 · ISSN 1984-6487</div>
+
+    <p class="lead">Uma pesquisa de campo que ligou para <strong>126 serviços autorizados</strong> a realizar o aborto legal no Brasil e descobriu que a realidade do atendimento está muito distante da norma. O título vem de uma fala real de funcionário de serviço de saúde ao ser consultado sobre o procedimento.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>O direito ao aborto legal, conquista de décadas no Brasil, permanece sistematicamente bloqueado por interdições <strong>institucionais, interpessoais e estruturais</strong> que operam independentemente do que diz a lei — revelando um cenário de violência de Estado sobre os corpos das mulheres, com recorte de raça e classe.</p>
+    </div>
+
+    <h3>Método e Achados</h3>
+    <p>As pesquisadoras fizeram levantamento no <em>CNES</em> (Cadastro Nacional de Estabelecimentos de Saúde), identificaram os serviços autorizados e realizaram contatos telefônicos amparadas na Lei de Acesso à Informação. De 126 serviços contactados, apenas 77 responderam. O cenário encontrado foi de:</p>
+    <ul>
+      <li><strong>Desinformação</strong> — funcionários não sabiam se o serviço realizava o procedimento.</li>
+      <li><strong>Condutas inapropriadas</strong> — encaminhamentos a delegacias, exigência de documentos não previstos em lei.</li>
+      <li><strong>Discrepâncias regionais severas</strong> — concentração dos serviços no Sul e Sudeste; Norte e Nordeste com cobertura mínima.</li>
+      <li><strong>Descompasso norma/prática</strong> — as normas técnicas do Ministério da Saúde existem, mas não chegam à ponta.</li>
+    </ul>
+
+    <h3>Lente Teórica: Feminismo Decolonial</h3>
+    <p>O artigo usa a perspectiva decolonial para mostrar que as barreiras de acesso ao aborto legal não são neutras — elas afetam desproporcionalmente <strong>mulheres negras, indígenas e de baixa renda</strong>, reproduzindo hierarquias coloniais dentro do sistema de saúde. Objeção de consciência institucional (não prevista em lei, mas praticada) é apontada como mecanismo de violência.</p>
+
+    <blockquote>
+      A proibição não impede que o aborto aconteça — apenas o torna mais perigoso para quem não tem renda para o circuito privado.
+      <cite>— síntese do argumento central do artigo</cite>
+    </blockquote>
+
+    <h3>Conexão com outros textos</h3>
+    <p>Este artigo é a contraparte empírica da <strong>Norma Técnica de Atenção Humanizada (Art. 2)</strong>, cujos protocolos, embora existentes, não chegam à prática. Diálogo direto também com <strong>Santos et al. 2013 (Art. 8)</strong>, que mostra a dimensão epidemiológica da mesma questão.</p>
+  </section>
+
+  <!-- ART 02 -->
+  <section id="art02">
+    <span class="section-num">§ 02 — ARTIGO 2</span>
+    <h2>Atenção Humanizada ao Abortamento</h2>
+    <div class="article-meta-line">Ministério da Saúde · Norma Técnica · 2ª edição · 2011 · Série Direitos Sexuais e Reprodutivos, Caderno nº 4</div>
+
+    <p class="lead">O documento oficial que deveria guiar toda assistência ao abortamento no SUS. Uma norma técnica densa — 60 páginas — que define direitos, fluxos, condutas clínicas e parâmetros éticos para os serviços de saúde.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do documento</span>
+      <p>O abortamento é evento de saúde pública. Toda mulher que chega a um serviço de saúde em processo de abortamento — independentemente da causa — tem direito a <strong>atendimento digno, humanizado e livre de julgamento moral</strong>. O papel do profissional de saúde não é julgar a causa, mas cuidar.</p>
+    </div>
+
+    <h3>O que a norma estabelece</h3>
+    <ol class="protocol">
+      <li><strong>Direito ao atendimento.</strong> Nenhuma mulher deve ser interrogada sobre a causa do abortamento. O atendimento é obrigatório para todas.</li>
+      <li><strong>Aborto legal — casos permitidos.</strong> Gravidez resultante de estupro, risco de vida da gestante e, por decisão do STF (2012), anencefalia fetal. A norma define os fluxos de acesso sem exigência de Boletim de Ocorrência ou autorização judicial.</li>
+      <li><strong>Anticoncepção pós-aborto.</strong> Oferta imediata e gratuita de métodos contraceptivos como parte do protocolo de cuidado.</li>
+      <li><strong>Acolhimento psicossocial.</strong> Escuta qualificada, sem imposição de valores religiosos ou morais.</li>
+      <li><strong>Objeção de consciência — limites.</strong> O profissional pode recusar o procedimento por consciência, mas é obrigado a encaminhar imediatamente para outro profissional ou serviço.</li>
+    </ol>
+
+    <h3>Por que isso importa clinicamente</h3>
+    <p>O abortamento inseguro mata. O Brasil registrava, à época da publicação, <strong>cerca de 200 mil internações/ano</strong> por complicações de aborto inseguro — uma das principais causas de mortalidade materna. A norma é, literalmente, um instrumento de prevenção de mortes.</p>
+
+    <div class="callout">
+      <span class="label">⚠ Lacuna importante</span>
+      <p>A norma técnica é robusta no papel, mas o Artigo 1 (Pereira et al. 2025) mostra que sua implementação é profundamente desigual. Norma e prática são mundos distintos no SUS real.</p>
+    </div>
+  </section>
+
+  <!-- ART 08 -->
+  <section id="art08">
+    <span class="section-num">§ 03 — ARTIGO 8</span>
+    <h2>Criminalização do Aborto e Implicações à Saúde Pública</h2>
+    <div class="article-meta-line">Santos, Anjos, Souzas & Eugênio · UESB/UFBA · Rev. Bioét. · 2013; 21(3):494-508</div>
+
+    <p class="lead">Uma revisão crítica das bases Lilacs e SciELO que mapeia o que a literatura científica diz sobre os efeitos da criminalização do aborto na saúde das mulheres brasileiras — com dados, argumento bioético e análise de direitos.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>A criminalização do aborto no Brasil <strong>não diminui sua prevalência</strong> — apenas o torna clandestino e perigoso. Trata-se de um problema de saúde pública que mata e adoece mulheres, com dimensões bioéticas claras: a lei viola a autonomia e a dignidade das mulheres como sujeitos de direito.</p>
+    </div>
+
+    <h3>Dados que sustentam o argumento</h3>
+    <ul>
+      <li>Estimativas apontavam <strong>750.000 a 1 milhão de abortos/ano</strong> no Brasil, a maioria clandestinos.</li>
+      <li>O aborto inseguro era a 4ª causa de mortalidade materna no país.</li>
+      <li>As mortes são <strong>altamente desiguais por raça e classe</strong>: mulheres negras e pobres morrem; mulheres ricas pagam por clínicas seguras.</li>
+      <li>O planejamento familiar deficiente no SUS é apontado como fator estrutural.</li>
+    </ul>
+
+    <h3>O argumento bioético</h3>
+    <p>O artigo mobiliza os princípios bioéticos clássicos: <em>autonomia</em> (direito da mulher sobre seu corpo), <em>beneficência</em> (sistema que deveria proteger a saúde, não expô-la a risco) e <em>justiça</em> (acesso desigual por raça e classe). Conclui que a proibição é, ela mesma, uma violação ética.</p>
+
+    <div class="compare">
+      <div class="left">
+        <h5>Argumento da proibição</h5>
+        <ul>
+          <li>Protege a vida do nascituro</li>
+          <li>Valores morais e religiosos</li>
+          <li>A lei como freio moral coletivo</li>
+        </ul>
+      </div>
+      <div class="right">
+        <h5>Argumento dos autores</h5>
+        <ul>
+          <li>A proibição não evita o aborto — apenas o torna inseguro</li>
+          <li>Mata mulheres pobres e negras</li>
+          <li>Viola autonomia, dignidade e igualdade</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ART 04 -->
+  <section id="art04">
+    <span class="section-num">§ 04 — ARTIGO 4</span>
+    <h2>Defensoria Pública e o Direito ao Aborto</h2>
+    <div class="article-meta-line">Galli & Bonan · Fiocruz/IFF · Interface (Botucatu) · 2026; 30:e250314</div>
+
+    <p class="lead">Um estudo de caso que analisa como a Defensoria Pública do Estado do Rio de Janeiro atua na garantia do acesso ao aborto legal — um ponto de entrada institucional pouco estudado, mas cada vez mais central no cenário brasileiro.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>A Defensoria Pública emerge como <strong>ator estratégico</strong> na garantia do acesso ao aborto legal, operando em dois modos: intervenção direta nos serviços de saúde e mediação judicial. Mas sua capacidade é limitada pelo contexto legal restritivo e pela chamada "zona cinzenta" da legalidade.</p>
+    </div>
+
+    <h3>A "zona cinzenta" da legalidade</h3>
+    <p>O Código Penal (1940) permite o aborto em casos de risco de vida e estupro. O STF em 2012 adicionou anencefalia. Mas existe um enorme espaço de casos que <em>não se encaixam literalmente</em> na lei mas que, por interpretação constitucional e de direitos humanos, poderiam ser considerados legais:</p>
+    <ul>
+      <li>Risco à <em>saúde</em> (não apenas à vida) da gestante</li>
+      <li>Anomalias fetais distintas da anencefalia</li>
+      <li>Grave sofrimento psíquico</li>
+    </ul>
+    <p>Nesses casos, a Defensoria atua como mediadora — ora pressionando serviços de saúde, ora buscando autorização judicial.</p>
+
+    <h3>Achados do estudo</h3>
+    <p>O artigo mostra que, na prática, o acesso ao aborto legal é uma <strong>"loteria"</strong>: depende do entendimento do juiz, da disposição do médico, da localização geográfica e da capacidade da mulher de acessar o sistema de Justiça. A Defensoria reduz — mas não elimina — essa aleatoriedade.</p>
+  </section>
+
+  <!-- ART 10 -->
+  <section id="art10">
+    <span class="section-num">§ 05 — ARTIGO 10</span>
+    <h2>Prevenção dos Agravos da Violência Sexual</h2>
+    <div class="article-meta-line">Ministério da Saúde · Norma Técnica · 3ª edição · 2012 · Série Direitos Sexuais e Reprodutivos, Caderno nº 6</div>
+
+    <p class="lead">O protocolo clínico e jurídico do SUS para o atendimento de mulheres e adolescentes vítimas de violência sexual — incluindo o acesso à anticoncepção de emergência e ao aborto legal em casos de gravidez resultante de estupro.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do documento</span>
+      <p>A violência sexual é agravo de saúde pública e emergência médica. O Estado tem obrigação de <strong>ofertar resposta integral</strong>: atendimento clínico imediato, anticoncepção de emergência, profilaxia de IST/HIV, suporte psicossocial e acesso ao aborto legal sem burocracia adicional.</p>
+    </div>
+
+    <h3>O que a norma cobre</h3>
+    <ul>
+      <li><strong>Atendimento físico:</strong> exame de corpo de delito, tratamento de traumas, coleta de evidências forenses.</li>
+      <li><strong>Anticoncepção de emergência (AE):</strong> levonorgestrel em até 72h; mecanismo de ação, esquemas, contraindicações.</li>
+      <li><strong>Profilaxia pós-exposição (PEP):</strong> para HIV, hepatite B e outras ISTs.</li>
+      <li><strong>Aborto legal:</strong> gravidez resultante de estupro não exige BO ou autorização judicial — apenas declaração da vítima. Este é um ponto central da norma.</li>
+      <li><strong>Apoio psicossocial:</strong> acolhimento, sigilo, autonomia e individualidade da vítima. A norma é explícita em vedar qualquer julgamento moral.</li>
+      <li><strong>Rede integrada:</strong> articulação entre saúde, delegacias, abrigos e sistema de Justiça.</li>
+    </ul>
+
+    <div class="callout gold">
+      <span class="label">★ Ponto clínico-legal crítico</span>
+      <p>A norma é explícita: para o aborto após estupro, <strong>não se exige Boletim de Ocorrência</strong>. Basta a declaração da vítima. Qualquer exigência além disso é ilegal e configura barreira de acesso.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- GRUPO B — TERMINALIDADE & CUIDADOS PALIATIVOS     -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="group-divider"><span class="group-label">Grupo B — Terminalidade, Fim da Vida & Cuidados Paliativos</span></div>
+
+  <!-- ART 11 -->
+  <section id="art11">
+    <span class="section-num">§ 06 — ARTIGO 11</span>
+    <h2>Ética em Cuidados Paliativos: Concepções sobre o Fim da Vida</h2>
+    <div class="article-meta-line">Paiva, Almeida Júnior & Damásio · UFRN · Rev. Bioét. · 2014; 22(3):550-60</div>
+
+    <p class="lead">Uma revisão narrativa que mapeia os fundamentos conceituais dos cuidados paliativos, sua trajetória histórica no Movimento Hospice e os dilemas bioéticos centrais envolvidos no cuidar de pacientes fora de possibilidades terapêuticas.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>Os cuidados paliativos representam uma <strong>mudança de paradigma</strong>: o foco deixa de ser a cura e passa a ser a qualidade de vida, o alívio do sofrimento e a dignidade até o final. Esse paradigma ainda é negligenciado no Brasil e exige determinação política, formação profissional e debate bioético aprofundado.</p>
+    </div>
+
+    <h3>O que são cuidados paliativos</h3>
+    <p>A OMS define cuidados paliativos (1990, atualizado em 2002) como a assistência ativa e integral a pacientes cuja doença não responde mais ao tratamento curativo. Seus objetivos:</p>
+    <ul>
+      <li><strong>Controle de dor e sintomas</strong> — físicos e psicológicos.</li>
+      <li><strong>Não antecipar nem prolongar a morte</strong> — encontrar o tempo natural da morte (ortotanásia).</li>
+      <li><strong>Cuidar do paciente e da família</strong> — a unidade de cuidado é a família, não só o paciente.</li>
+      <li><strong>Dignidade humana</strong> — para além da dimensão físico-biológica.</li>
+    </ul>
+
+    <h3>Fases do luto — Kübler-Ross</h3>
+    <p>O artigo integra as fases do luto de Kübler-Ross como referencial para o trabalho clínico: negação, raiva, barganha, depressão e aceitação. O profissional de saúde precisa reconhecer em qual fase o paciente e a família estão para adaptar a comunicação e o cuidado.</p>
+
+    <h3>Os três grandes dilemas bioéticos</h3>
+    <ol class="protocol">
+      <li><strong>Eutanásia vs. Ortotanásia vs. Distanásia.</strong> A linha entre cuidar da morte boa e matar intencionalmente ou prolongar artificialmente o sofrimento é o eixo ético central.</li>
+      <li><strong>Autonomia do paciente.</strong> Quem decide quando a cura já não é possível? O paciente, a família, a equipe?</li>
+      <li><strong>Formação profissional.</strong> Médicos são treinados para curar, não para cuidar do morrer. A lacuna formativa é reconhecida como problema estrutural.</li>
+    </ol>
+
+    <blockquote>
+      O desafio é considerar a dignidade humana diante da proximidade da morte para além da dimensão físico-biológica e da perspectiva médico-hospitalar.
+      <cite>— Paiva, Almeida Júnior & Damásio, 2014</cite>
+    </blockquote>
+  </section>
+
+  <!-- ART 03 -->
+  <section id="art03">
+    <span class="section-num">§ 07 — ARTIGO 3</span>
+    <h2>Condutas Éticas no Cuidado ao Paciente Terminal</h2>
+    <div class="article-meta-line">Artigo acadêmico · Bioética · Cuidados paliativos</div>
+
+    <p class="lead">Um texto voltado para os dilemas práticos que emergem na beira do leito quando a cura não é mais possível — como o profissional de saúde deve agir eticamente diante da terminalidade.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>Existem condutas eticamente distintas diante do paciente terminal: a distanásia (prolongamento artificial do sofrimento), a eutanásia (abreviação intencional da vida) e a ortotanásia (morte no tempo certo, sem intervenção fútil). <strong>A conduta ética é a ortotanásia</strong>, amparada nos princípios bioéticos e, no Brasil, na Resolução do CFM.</p>
+    </div>
+
+    <h3>Os três conceitos fundamentais</h3>
+    <div class="compare">
+      <div class="left">
+        <h5>Distanásia</h5>
+        <ul>
+          <li>"Morte lenta e sofrida"</li>
+          <li>Prolongamento fútil por meios desproporcionais</li>
+          <li>Viola dignidade — eticamente reprovável</li>
+          <li>Comumente praticada por medo legal ou despreparo</li>
+        </ul>
+      </div>
+      <div class="right">
+        <h5>Ortotanásia</h5>
+        <ul>
+          <li>"Morte no tempo certo"</li>
+          <li>Não antecipa, não prolonga artificialmente</li>
+          <li>Foco em conforto e dignidade</li>
+          <li>Amparada pelo CFM e pela bioética contemporânea</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Autonomia e Diretivas Antecipadas de Vontade (DAV)</h3>
+    <p>O texto aborda o direito do paciente de registrar suas preferências de tratamento para situações em que não possa se manifestar (DAV / testamento vital). A Resolução CFM 1.995/2012 regulamenta isso no Brasil. O respeito às DAVs é ato de respeito à autonomia — princípio bioético central.</p>
+  </section>
+
+  <!-- ART 05 -->
+  <section id="art05">
+    <span class="section-num">§ 08 — ARTIGO 5</span>
+    <h2>Alimentação e Hidratação Artificial no Fim da Vida</h2>
+    <div class="article-meta-line">Cadernos de Saúde · Vol. 15, n. 1 · 2023 · Portugal · DOI 10.34632/cadernosdesaude.2023.11692</div>
+
+    <p class="lead">Reflexão bioética baseada em caso clínico real sobre a decisão mais comum e mais difícil nos cuidados paliativos: manter ou suspender a alimentação e hidratação artificial quando o paciente está no fim da vida.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>A alimentação e hidratação artificial <strong>não são cuidados básicos quando se tornaram fúteis</strong> — são intervenções médicas. Como qualquer intervenção, podem ser proporcionais ou desproporcionais à situação clínica. Suspendê-las, quando indicado, é ato ético e não equivale a matar o paciente.</p>
+    </div>
+
+    <h3>O caso clínico como método</h3>
+    <p>O artigo parte de um caso concreto — paciente em estado terminal, família dividida sobre manter a SNE (sonda nasoentérica) — para discutir os princípios que devem guiar a decisão. Este método (casuística) é clássico na bioética clínica.</p>
+
+    <h3>Os princípios em jogo</h3>
+    <ul>
+      <li><strong>Beneficência e não-maleficência:</strong> a nutrição artificial em fase avançada frequentemente causa mais desconforto do que benefício — distensão, náuseas, restrição de mobilidade.</li>
+      <li><strong>Autonomia:</strong> o que o paciente desejaria? As DAVs são essenciais aqui.</li>
+      <li><strong>Futilidade terapêutica:</strong> quando a intervenção não melhora a qualidade de vida nem o prognóstico, ela é fútil e sua manutenção é distanásia.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="label">↳ Distinção clínica crucial</span>
+      <p>Suspender nutrição artificial fútil <strong>não é eutanásia</strong>. A morte ocorre pela doença, não pela suspensão. Essa distinção é fundamental para a prática ética e para a tranquilidade da equipe e da família.</p>
+    </div>
+  </section>
+
+  <!-- ART 09 -->
+  <section id="art09">
+    <span class="section-num">§ 09 — ARTIGO 9</span>
+    <h2>Alimentar a Morte ou Nutrir a Vida?</h2>
+    <div class="article-meta-line">Artigo acadêmico · Bioética · Nutrição clínica · Fim da vida</div>
+
+    <p class="lead">O título já é a tese: em determinados pacientes terminais, insistir na nutrição artificial não é nutrir a vida — é alimentar o processo de morrer. Uma análise crítica da medicalização da morte e da fronteira entre cuidado e obstinação terapêutica.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>A obstinação terapêutica nutricional — manter dieta artificial em pacientes fora de possibilidades terapêuticas — é forma de distanásia. O cuidado nutritivo, nesses casos, deve migrar do suporte nutricional artificial para o <strong>conforto oral</strong> e para o suporte emocional e espiritual.</p>
+    </div>
+
+    <h3>A medicalização do morrer</h3>
+    <p>O artigo critica o que chama de "medicalização do morrer": a morte tornou-se evento hospitalar e tecnológico, quando por séculos foi evento comunitário e doméstico. Essa transformação criou a cultura da intervenção a qualquer custo — que produz sofrimento, não cuidado.</p>
+
+    <h3>Conexão com o Artigo 5</h3>
+    <p>Ambos os artigos convergem na defesa da <strong>ortotanásia nutricional</strong>: não suspender a alimentação como ato de abandono, mas reorientá-la para o conforto — hidratar a boca, oferecer alimentos preferidos em pequenas quantidades, cuidar do prazer alimentar quando ainda existe.</p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- GRUPO C — CASOS CLÍNICOS ESPECIAIS & NORMATIVAS   -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="group-divider"><span class="group-label">Grupo C — Casos Clínicos Especiais & Normativas</span></div>
+
+  <!-- ART 06 -->
+  <section id="art06">
+    <span class="section-num">§ 10 — ARTIGO 6</span>
+    <h2>Resolução RA 2320/2022 — CFM</h2>
+    <div class="article-meta-line">Conselho Federal de Medicina · Resolução RA 2320/2022</div>
+
+    <p class="lead">A norma do Conselho Federal de Medicina que regulamenta as condutas médicas diante da terminalidade da vida e dos cuidados paliativos — o arcabouço deontológico que baliza a prática do médico brasileiro nesses contextos.</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese normativa</span>
+      <p>O médico tem não apenas o direito, mas o <strong>dever ético</strong> de limitar procedimentos desproporcionais em pacientes terminais, priorizando conforto, dignidade e autonomia. A obstinação terapêutica — distanásia — é explicitamente vedada pelo Código de Ética Médica.</p>
+    </div>
+
+    <h3>O que a resolução define</h3>
+    <ul>
+      <li><strong>Ortotanásia</strong> — definição legal e ética de "deixar morrer no tempo certo".</li>
+      <li><strong>Terminalidade</strong> — critérios para reconhecer o paciente fora de possibilidades terapêuticas.</li>
+      <li><strong>Papel das DAVs</strong> — o médico deve respeitar as diretivas antecipadas do paciente.</li>
+      <li><strong>Sedação paliativa</strong> — permitida quando necessária para alívio de sofrimento refratário, mesmo que possa suprimir a consciência.</li>
+      <li><strong>Comunicação</strong> — obrigação de informar paciente e família de forma clara, honesta e compassiva.</li>
+    </ul>
+
+    <h3>Aplicação nos outros artigos</h3>
+    <p>A Resolução 2320/2022 é o referencial normativo que justifica as condutas descritas nos artigos 3, 5 e 9. É a norma que diz ao médico: <em>você pode e deve fazer isso.</em> O caso de morte encefálica em gestante (Art. 7) é um dos contextos mais complexos de aplicação dessa normativa.</p>
+  </section>
+
+  <!-- ART 07 -->
+  <section id="art07">
+    <span class="section-num">§ 11 — ARTIGO 7</span>
+    <h2>Morte Encefálica em Gestante: Suporte Somático e Dilemas Éticos</h2>
+    <div class="article-meta-line">Souza, Soares, Almeida et al. · Medicus · v.6 n.2 · Fev–Jul 2024</div>
+
+    <p class="lead">Uma revisão de escopo sobre um dos casos clínicos mais complexos da bioética: a gestante que evolui para morte encefálica. O que fazer com o feto — que pode ser viável? Quem decide? Qual o papel da família, da lei e da religião?</p>
+
+    <h3>Tese Central</h3>
+    <div class="callout insight">
+      <span class="label">↳ Tese do artigo</span>
+      <p>O suporte somático de gestantes em morte encefálica é tecnicamente possível e já resultou em nascimentos bem-sucedidos. Mas a decisão envolve <strong>dilemas éticos, religiosos e jurídicos irredutíveis</strong> — e deve ser tomada com a família, com equipe multiprofissional e com respeito às DAVs e às leis locais sobre direito fetal.</p>
+    </div>
+
+    <h3>O que é o suporte somático neste contexto</h3>
+    <p>Após a morte encefálica, o corpo da gestante pode ser mantido artificialmente funcionando para permitir o desenvolvimento fetal até a viabilidade. Isso envolve:</p>
+    <ul>
+      <li>Ventilação mecânica, suporte hemodinâmico, nutrição parenteral</li>
+      <li>Monitoramento fetal contínuo</li>
+      <li>Terapia hormonal (hormônios que a hipófise morta não produz mais)</li>
+      <li>Manejo de complicações: hipotensão, infecção, diabetes insípido</li>
+    </ul>
+
+    <h3>O conflito ético central</h3>
+    <p>Em jurisdições onde o "direito fetal à vida" tem proteção legal robusta, houve casos em que o suporte foi mantido <strong>contra a vontade expressa da família</strong>. Isso coloca em choque o direito da família (como representante legal da falecida) e o direito do Estado de proteger a vida fetal em formação.</p>
+
+    <div class="callout">
+      <span class="label">↳ Conexão com doação de órgãos</span>
+      <p>O artigo também discute que o suporte bem-sucedido até o parto preserva os órgãos da gestante para doação — uma dimensão adicional que complexifica ainda mais a decisão ética e familiar.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- SÍNTESE COMPARATIVA                               -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="group-divider"><span class="group-label">Síntese — Convergências & Tensões entre os Textos</span></div>
+
+  <section>
+    <span class="section-num">§ 12 — MAPA CONCEITUAL</span>
+    <h2>O que os 11 textos dizem juntos</h2>
+
+    <h3>Convergências transversais</h3>
+    <p>Apesar de cobrirem temas distintos, os 11 textos compartilham um conjunto de pressupostos éticos:</p>
+    <ol class="protocol">
+      <li><strong>Autonomia como valor central.</strong> Seja o direito da mulher sobre seu corpo (aborto), seja o direito do paciente de recusar tratamento fútil (terminalidade), a autonomia individual é o princípio mais invocado por todos os autores.</li>
+      <li><strong>Dignidade humana como limite.</strong> Nenhum dos textos aceita que a vida seja prolongada ou protegida a qualquer custo. A dignidade — física, psicológica, espiritual — é o critério ético que prevalece sobre a mera sobrevivência biológica.</li>
+      <li><strong>Recorte de raça e classe.</strong> Os textos sobre aborto são explícitos: as desigualdades de acesso afetam desproporcionalmente mulheres negras e pobres. O mesmo argumento pode ser aplicado ao acesso a cuidados paliativos de qualidade.</li>
+      <li><strong>Norma vs. Prática.</strong> Há um abismo entre o que as normas técnicas e resoluções prescrevem e o que acontece nos serviços. Isso aparece explicitamente nos artigos 1, 2, 4 e 10.</li>
+    </ol>
+
+    <h3>Tensões e paradoxos</h3>
+
+    <div class="callout">
+      <span class="label">↯ Tensão 1 — Vida biológica vs. Qualidade de vida</span>
+      <p>Os textos sobre terminalidade (3, 5, 6, 9, 11) argumentam que prolongar a vida biológica a qualquer custo pode ser antiético. Os textos sobre aborto (1, 2, 8) argumentam que proteger a vida biológica do feto acima da saúde da mulher também o é. Em ambos os campos, a pergunta é: <strong>quando a intervenção torna-se violência?</strong></p>
+    </div>
+
+    <div class="callout">
+      <span class="label">↯ Tensão 2 — Objeção de consciência</span>
+      <p>Tanto no aborto legal quanto nos cuidados paliativos, a objeção de consciência do profissional aparece como obstáculo ao cuidado. As normas técnicas (arts. 2 e 10) limitam esse direito — o profissional pode recusar, mas é obrigado a encaminhar. Na prática, o encaminhamento frequentemente não ocorre.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">↯ Tensão 3 — Família vs. Autonomia do paciente</span>
+      <p>No contexto da morte encefálica em gestante (art. 7) e das DAVs (arts. 3 e 6), a família frequentemente toma decisões que conflitam com o que o paciente havia manifestado (ou que conflitam com a decisão da família de outro membro — o feto). Essa tensão é irresolvível sem protocolos claros.</p>
+    </div>
+
+    <figure>
+      <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa dos 11 textos em 3 grupos temáticos com convergências centrais">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0d4a4a"/>
+          </marker>
+        </defs>
+
+        <!-- GRUPO A — esquerda -->
+        <rect x="20" y="30" width="180" height="230" fill="#faf6ec" stroke="#c9bfae" stroke-width="1"/>
+        <text x="110" y="52" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#c4541e" letter-spacing="2">GRUPO A</text>
+        <text x="110" y="66" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#082f2f" font-weight="600">Aborto & Direito</text>
+        <text x="30" y="92" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">01 · Aborto legal (UFMG)</text>
+        <text x="30" y="112" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">02 · Norma humanizada MS</text>
+        <text x="30" y="132" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">04 · Defensoria RJ</text>
+        <text x="30" y="152" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">08 · Criminalização</text>
+        <text x="30" y="172" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">10 · Violência sexual</text>
+
+        <!-- GRUPO B — direita -->
+        <rect x="500" y="30" width="180" height="230" fill="#faf6ec" stroke="#c9bfae" stroke-width="1"/>
+        <text x="590" y="52" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#c4541e" letter-spacing="2">GRUPO B</text>
+        <text x="590" y="66" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#082f2f" font-weight="600">Terminalidade</text>
+        <text x="510" y="92" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">03 · Condutas éticas</text>
+        <text x="510" y="112" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">05 · Alim./hidrat. fim de vida</text>
+        <text x="510" y="132" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">09 · Alimentar a morte</text>
+        <text x="510" y="152" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a">11 · Ética paliativa</text>
+
+        <!-- GRUPO C — centro baixo -->
+        <rect x="230" y="300" width="240" height="100" fill="#0d4a4a"/>
+        <text x="350" y="328" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#e89b6f" letter-spacing="2">GRUPO C</text>
+        <text x="350" y="348" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#faf6ec" font-weight="600">Casos & Normativas</text>
+        <text x="350" y="368" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#e89b6f">06 · Res. 2320/2022</text>
+        <text x="350" y="386" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#e89b6f">07 · Morte encefálica gestante</text>
+
+        <!-- CONVERGÊNCIA CENTRAL -->
+        <ellipse cx="350" cy="160" rx="100" ry="60" fill="rgba(196,84,30,.08)" stroke="#c4541e" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="350" y="148" text-anchor="middle" font-family="Fraunces, serif" font-size="13" fill="#082f2f" font-weight="600">Autonomia</text>
+        <text x="350" y="164" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a" font-style="italic">Dignidade</text>
+        <text x="350" y="180" text-anchor="middle" font-family="Source Serif 4, serif" font-size="11" fill="#3d4a4a" font-style="italic">Justiça distributiva</text>
+
+        <!-- setas -->
+        <line x1="200" y1="140" x2="248" y2="140" stroke="#0d4a4a" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="500" y1="140" x2="452" y2="140" stroke="#0d4a4a" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="350" y1="220" x2="350" y2="298" stroke="#0d4a4a" stroke-width="1.5" marker-end="url(#arr)"/>
+      </svg>
+      <figcaption>Fig. 1 — Os 3 grupos temáticos e as convergências centrais que atravessam todos os 11 textos</figcaption>
+    </figure>
+  </section>
+
+  <!-- ═══ TAKEAWAYS ═══ -->
+  <section class="takeaways">
+    <span class="section-num">§ 13 — SÍNTESE FINAL</span>
+    <h2>O que levar desta aula</h2>
+    <ol>
+      <li><strong>O aborto legal existe há décadas no Brasil</strong> — mas o acesso é bloqueado por barreiras institucionais, geográficas e culturais que afetam desproporcionalmente mulheres negras e pobres.</li>
+      <li>A <strong>Norma Técnica de Atenção Humanizada</strong> e a <strong>Norma de Prevenção da Violência Sexual</strong> são os protocolos que devem guiar a prática. Nenhum BO é exigido para aborto após estupro — apenas a declaração da vítima.</li>
+      <li><strong>Criminalização não reduz o aborto</strong> — apenas o torna inseguro. A mortalidade materna por aborto inseguro é evidência de falha de saúde pública, não de sucesso moral.</li>
+      <li>A Defensoria Pública tem papel crescente no acesso ao aborto legal, mas atua numa "zona cinzenta" jurídica que deveria ser resolvida legislativamente, não caso a caso.</li>
+      <li><strong>Cuidados paliativos não são abandono</strong> — são a forma mais ativa e intensa de cuidar quando a cura não é mais possível. Exigem equipe multiprofissional, comunicação e conforto.</li>
+      <li><strong>Distanásia é antiética.</strong> Prolongar artificialmente a vida quando isso só gera sofrimento viola os princípios de não-maleficência, beneficência e dignidade.</li>
+      <li><strong>Ortotanásia é ética</strong> — e está amparada no Código de Ética Médica e na Resolução 2320/2022. Suspender tratamento fútil não é matar o paciente: é deixar a doença seguir seu curso.</li>
+      <li>Alimentação e hidratação artificial são <strong>intervenções médicas</strong>, não cuidados básicos. Quando fúteis, suspendê-las é conduta ética — não abandono.</li>
+      <li>A morte encefálica em gestante é o <strong>caso-limite</strong> que concentra todos os dilemas: autonomia, direito fetal, papel da família, limite da tecnologia. Exige protocolo multidisciplinar e respeito às DAVs.</li>
+      <li>A <strong>objeção de consciência do profissional</strong> tem limites legais — o encaminhamento é obrigatório, tanto no aborto quanto na recusa de cuidado paliativo.</li>
+      <li>Todos esses temas convergem em torno de três valores: <strong>autonomia, dignidade e justiça distributiva</strong>. Quando a prática clínica os respeita, o cuidado é ético. Quando os viola, é violência — mesmo que legal.</li>
+    </ol>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <span>Síntese Didática · 11 Textos de Bioética & Direito · Compilação 2026</span>
+    <span>Aborto legal · Cuidados paliativos · Terminalidade · Bioética</span>
+  </footer>
+
+</div>
+</body>
+</html>

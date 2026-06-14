@@ -1,0 +1,22 @@
+# Arquivos de build e temporários
+site/
+extracted.txt
+extract_pdfs.py
+__pycache__/
+*.pyc
+*.pyo
+
+# PDFs (grandes, não devem ir para o repo se não quiser)
+# Descomente as linhas abaixo para excluir os PDFs
+# *.pdf
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+venv/
+.venv/
+*.egg-info/
+dist/
