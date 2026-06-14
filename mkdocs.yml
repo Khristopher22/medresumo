@@ -1,0 +1,109 @@
+site_name: "Revisão Acadêmica · Bioética & Direito"
+site_description: "Hub de revisão estratégica dos 11 artigos sobre aborto, cuidados paliativos e bioética"
+site_author: "DevOps&SRE Editorial"
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: pt
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.integrate
+    - search.highlight
+    - search.suggest
+    - content.tooltips
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - assets/css/forest-academic.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/solid/book-open
+      link: "#"
+      name: Revisão Acadêmica
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: Nesta página
+  - abbr
+  - footnotes
+  - def_list
+
+plugins:
+  - search:
+      lang: pt
+  - glightbox
+
+nav:
+  - Início: index.md
+  - Artigos:
+    - Aborto Legal:
+        - Visão Geral: artigos/aborto-legal/index.md
+        - Revisão Completa: artigos/aborto-legal/revisao.md
+    - Atenção Humanizada ao Abortamento:
+        - Visão Geral: artigos/atencao-humanizada/index.md
+        - Revisão Completa: artigos/atencao-humanizada/revisao.md
+    - Condutas Éticas e Paciente Terminal:
+        - Visão Geral: artigos/condutas-eticas/index.md
+        - Revisão Completa: artigos/condutas-eticas/revisao.md
+    - Defensoria Pública e Aborto:
+        - Visão Geral: artigos/defensoria-aborto/index.md
+        - Revisão Completa: artigos/defensoria-aborto/revisao.md
+    - Alimentação e Hidratação — Fim da Vida:
+        - Visão Geral: artigos/alimentacao-hidratacao/index.md
+        - Revisão Completa: artigos/alimentacao-hidratacao/revisao.md
+    - Resolução RA 2320/2022:
+        - Visão Geral: artigos/resolucao-2320/index.md
+        - Revisão Completa: artigos/resolucao-2320/revisao.md
+    - Morte Encefálica em Gestante:
+        - Visão Geral: artigos/morte-encefalica/index.md
+        - Revisão Completa: artigos/morte-encefalica/revisao.md
+    - Aborto e Saúde Pública (Santos 2013):
+        - Visão Geral: artigos/aborto-saude-publica/index.md
+        - Revisão Completa: artigos/aborto-saude-publica/revisao.md
+    - Alimentar a Morte ou Nutrir a Vida:
+        - Visão Geral: artigos/alimentar-morte/index.md
+        - Revisão Completa: artigos/alimentar-morte/revisao.md
+    - Prevenção de Agravo — Violência Sexual:
+        - Visão Geral: artigos/prevencao-agravo/index.md
+        - Revisão Completa: artigos/prevencao-agravo/revisao.md
+    - Ética em Cuidados Paliativos (Paiva 2014):
+        - Visão Geral: artigos/etica-cuidados-paliativos/index.md
+        - Revisão Completa: artigos/etica-cuidados-paliativos/revisao.md
+  - Síntese Comparativa: sintese.md
+  - Glossário Bioético: glossario.md

@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Report Mensal — Exemplo",
+    "lang": "pt-BR",
+    "brand": { "wordmark": "DevOps&SRE" },
+    "footer": "◆ Plataforma DevOps · RD Saúde"
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "indicator": "Plataforma DevOps · RD Saúde",
+      "title": "Report Mensal · <em>Exemplo</em>",
+      "lede": "Modelo de capa do motor HTML — edite este arquivo (slides.example.json) e rode python build.py para gerar o deck.",
+      "byline": [
+        { "label": "Período", "value": "Report mensal · mai/2026" },
+        { "label": "Direção", "value": "Forest Editorial" }
+      ],
+      "thesis": {
+        "label": "Em uma frase",
+        "h3": "Um relatório executivo branco, leve e importável no Canva via PDF.",
+        "acts": [
+          { "num": "I", "title": "Conteúdo & visuais", "sub": "bullets, tabelas, gráficos e diagramas" },
+          { "num": "II", "title": "Entrega", "sub": "HTML interativo + PDF para o Canva", "accent": true }
+        ]
+      }
+    },
+    {
+      "kind": "content",
+      "section": "Contexto",
+      "indicator": "O que este modelo entrega",
+      "sub": "Componentes prontos do tema, usados como HTML livre no corpo de cada slide.",
+      "html": "<div class=\"cols\" style=\"grid-template-columns:1.1fr .9fr;height:420px\"><div><p class=\"subhead\">Capacidades</p><div class=\"tags\"><span class=\"tag\">HTML</span><span class=\"tag t\">PDF</span><span class=\"tag b\">Plotly</span><span class=\"tag\">Mermaid</span><span class=\"tag t\">GIF nativo</span></div><p class=\"subhead\" style=\"margin-top:22px\">Como atua</p><ul class=\"bullets\"><li><span class=\"mk\">1</span><span><b>Capa</b> com tese e atos</span></li><li><span class=\"mk\">2</span><span><b>Conteúdo</b> em HTML livre</span></li><li><span class=\"mk\">3</span><span><b>Gráficos</b> via Plotly embutido</span></li><li><span class=\"mk\">4</span><span><b>Export</b> para PDF/Canva</span></li></ul></div><div style=\"display:flex;flex-direction:column;gap:12px\"><div class=\"callout\"><b>Teto estético máximo:</b> CSS livre dentro do envelope da marca — verde-floresta + terracota.</div><div class=\"card\"><div class=\"topline\"></div><h3>Leve</h3><p>1 arquivo HTML; libs só via CDN quando o slide usa gráfico/diagrama.</p></div><div class=\"card warn\"><div class=\"topline\"></div><h3>Importável</h3><p>PDF 16:9 — uma página por slide, pronto para o Canva.</p></div></div></div>"
+    },
+    {
+      "kind": "content",
+      "section": "Métricas",
+      "indicator": "Distribuição de evaluators",
+      "sub": "Gráficos Plotly herdam os defaults da marca (fundo transparente, fontes IBM Plex).",
+      "html": "<div class=\"cols\" style=\"grid-template-columns:1fr 1fr;height:420px;align-items:center\"><div><p class=\"subhead\">Evaluators em stage</p><div class=\"chart\" style=\"height:300px\" data-plotly='{\"data\":[{\"type\":\"pie\",\"hole\":0.62,\"labels\":[\"PII\",\"Prompt injection\"],\"values\":[2,1],\"sort\":false,\"marker\":{\"colors\":[\"#1a7a48\",\"#bd5f29\"],\"line\":{\"color\":\"#ffffff\",\"width\":2}},\"textinfo\":\"label+value\",\"textposition\":\"outside\",\"textfont\":{\"family\":\"IBM Plex Mono, monospace\",\"size\":12,\"color\":\"#1b2a22\"}}],\"layout\":{\"annotations\":[{\"text\":\"<b>3</b><br>evaluators\",\"showarrow\":false,\"font\":{\"family\":\"IBM Plex Sans, sans-serif\",\"size\":18,\"color\":\"#0c3a25\"}}],\"margin\":{\"t\":8,\"b\":8,\"l\":8,\"r\":8}}}'></div></div><div><p class=\"subhead\">Superfície entregue</p><div class=\"chart\" style=\"height:300px\" data-plotly='{\"data\":[{\"type\":\"bar\",\"orientation\":\"h\",\"x\":[7,5,3,2],\"y\":[\"Acessos\",\"MCP\",\"Evaluators\",\"Contextos\"],\"marker\":{\"color\":[\"#0c3a25\",\"#1a7a48\",\"#bd5f29\",\"#3aa564\"]},\"text\":[\"7\",\"5\",\"3\",\"2\"],\"textposition\":\"outside\",\"cliponaxis\":false,\"width\":0.62,\"textfont\":{\"family\":\"IBM Plex Mono, monospace\",\"size\":13,\"color\":\"#1b2a22\"}}],\"layout\":{\"margin\":{\"t\":6,\"b\":22,\"l\":90,\"r\":30},\"xaxis\":{\"range\":[0,8],\"showgrid\":true,\"gridcolor\":\"#e2e8e3\",\"zeroline\":false,\"dtick\":2},\"yaxis\":{\"autorange\":\"reversed\"}}}'></div></div></div>"
+    },
+    {
+      "kind": "content",
+      "section": "Fluxo",
+      "indicator": "Diagrama técnico",
+      "sub": "Mermaid renderiza nativamente com o tema verde-floresta.",
+      "html": "<div class=\"diagram\" style=\"height:430px\"><pre class=\"mermaid\">flowchart TD\n    A[\"Entrada\"] --> B[\"Processa\"]\n    B --> C{\"Decisão?\"}\n    C -->|Sim| D([\"Resolvido\"])\n    C -->|Não| E[\"Escala\"]\n    E --> F([\"Encaminhado\"])\n    classDef ok fill:#e7f1ea,stroke:#1a7a48,color:#0c3a25;\n    classDef tk fill:#f7e8da,stroke:#bd5f29,color:#9d4d1f;\n    class D ok;\n    class E,F tk;</pre></div>"
+    },
+    {
+      "kind": "content",
+      "section": "Valor",
+      "indicator": "Valor entregue",
+      "sub": "Fechamento com pilares e statement.",
+      "html": "<div class=\"pillars\" style=\"height:300px\"><div class=\"pillar\"><span class=\"pn\">Estética</span><h4>Teto máximo</h4><p>CSS livre dentro da marca.</p></div><div class=\"pillar p2\"><span class=\"pn\">Peso</span><h4>1 arquivo</h4><p>standalone; libs sob demanda.</p></div><div class=\"pillar p3\"><span class=\"pn\">Export</span><h4>PDF 16:9</h4><p>importável no Canva.</p></div><div class=\"pillar p4\"><span class=\"pn\">Conteúdo</span><h4>Componentes</h4><p>cards, charts, diagramas.</p></div></div><div class=\"statement\" style=\"margin-top:18px;font-size:18px\">Do roteiro ao deck — com <em>identidade, leveza e portabilidade</em> para o Canva.</div>"
+    }
+  ]
+}

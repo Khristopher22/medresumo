@@ -1,0 +1,83 @@
+/*-- scss:defaults --*/
+// Tema Quarto/reveal.js espelhando o Forest Editorial (fundo branco, marca DevOps&SRE).
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+$body-bg:        #ffffff;
+$body-color:     #1b2a22;
+$font-family-sans-serif: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+$presentation-font-size-root: 30px;
+$presentation-heading-font: "IBM Plex Sans", system-ui, sans-serif;
+$presentation-heading-color: #0c3a25;
+$presentation-heading-font-weight: 700;
+$link-color:     #9d4d1f;
+$selection-bg:   #cfe4d6;
+$code-block-bg:  #0c3a25;
+$code-color:     #0f4a30;
+
+/*-- scss:rules --*/
+$g900:#0c3a25; $g700:#1a7a48; $g600:#22824f; $g500:#3aa564;
+$terra:#bd5f29; $terra2:#9d4d1f; $ink:#1b2a22; $muted:#566159; $faint:#8a948c;
+$line:#e2e8e3; $card2:#f6f8f6; $green-tint:#eef6f0; $green-line:#cfe4d6;
+
+.reveal { font-family: "IBM Plex Sans", system-ui, sans-serif; }
+.reveal .slides { text-align: left; }
+.reveal .slides section { padding-top: 24px; }
+
+/* Marca DevOps&SRE fixa (logo bússola via data-URI) + faixa verde à esquerda */
+.reveal::before{
+  content:"DevOps&SRE";
+  position:fixed; top:26px; left:42px; z-index:40;
+  padding-left:54px; height:44px; line-height:44px;
+  font-family:"IBM Plex Sans",sans-serif; font-weight:700; font-size:25px;
+  letter-spacing:-.018em; color:$ink;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ccircle%20cx='50'%20cy='50'%20r='45'%20fill='%230c3a25'%20stroke='%233aa564'%20stroke-width='6'/%3E%3Cpath%20d='M50%2018%20L59%2041%20L82%2050%20L59%2059%20L50%2082%20L41%2059%20L18%2050%20L41%2041%20Z'%20fill='%2348c47f'%20stroke='%230c3a25'%20stroke-width='2'/%3E%3Ccircle%20cx='50'%20cy='50'%20r='4.5'%20fill='%230c3a25'/%3E%3C/svg%3E") no-repeat left center;
+  background-size:44px 44px;
+}
+.reveal::after{
+  content:""; position:fixed; top:0; left:0; width:6px; height:100%;
+  background:$g700; z-index:40;
+}
+
+.reveal h1, .reveal h2, .reveal h3 { letter-spacing:-.012em; line-height:1.08; }
+.reveal h1 { color:$g900; font-size:2.0em; }
+.reveal h2 { color:$g600; font-size:1.25em; font-weight:600; }   /* indicador verde */
+.reveal h3 { color:$g900; font-size:1.0em; }
+.reveal strong { color:$g900; }
+.reveal em { color:$terra2; font-style:normal; }
+.reveal a { color:$terra2; text-decoration:none; }
+
+.reveal ul li::marker { color:$g500; }
+.reveal ol li::marker { color:$g600; }
+
+.reveal blockquote{
+  border:1px solid $line; border-left:5px solid $g700; background:$card2;
+  border-radius:14px; padding:18px 24px; color:$g900; font-weight:600;
+  box-shadow:none; width:auto;
+}
+.reveal blockquote strong{ color:$terra; }
+
+.reveal table{ font-size:.72em; }
+.reveal table thead th{ background:$g900; color:#e9f1ea; font-family:"IBM Plex Mono",monospace;
+  text-transform:uppercase; font-size:.78em; letter-spacing:.05em; border:0; }
+.reveal table tbody td{ border-bottom:1px solid $line; color:$muted; }
+.reveal table tbody tr:first-child td{ border-top:0; }
+.reveal table tbody td:first-child{ color:$g900; font-weight:600; }
+
+.reveal code{ font-family:"IBM Plex Mono",monospace; }
+.reveal :not(pre) > code{ background:$green-tint; color:$g700; padding:1px 7px; border-radius:6px; }
+.reveal pre{ box-shadow:none; }
+.reveal pre code{ border-radius:12px; padding:16px 20px; }
+
+.reveal .slide-number, .reveal .footer{
+  font-family:"IBM Plex Mono",monospace; color:$faint; font-size:.55em; letter-spacing:.1em;
+}
+.reveal .footer{ text-transform:uppercase; }
+
+/* Título (capa) gerado pelo Quarto */
+#title-slide .title{ color:$g900; font-size:2.1em; font-weight:700; letter-spacing:-.02em; }
+#title-slide .subtitle{ color:$g600; font-weight:600; }
+#title-slide .quarto-title-author, #title-slide .date{ color:$muted; font-family:"IBM Plex Mono",monospace; font-size:.6em; }
+
+/* Diagramas mermaid centralizados */
+.reveal .mermaid, .reveal pre.mermaid{ display:flex; justify-content:center; }
+.reveal svg{ max-height:520px; }

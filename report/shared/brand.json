@@ -1,0 +1,47 @@
+{
+  "name": "Forest Editorial — DevOps&SRE",
+  "description": "Tokens canônicos do tema de report executivo RD (fundo branco, marca DevOps&SRE, tri-stack tipográfico). Consumido pelos build scripts dos três motores (html/marp/quarto).",
+  "palette": {
+    "paper":      "#ffffff",
+    "card":       "#ffffff",
+    "card2":      "#f6f8f6",
+    "ink":        "#1b2a22",
+    "muted":      "#566159",
+    "faint":      "#8a948c",
+    "g900":       "#0c3a25",
+    "g800":       "#0f4a30",
+    "g700":       "#1a7a48",
+    "g600":       "#22824f",
+    "g500":       "#3aa564",
+    "g300":       "#7fcf9e",
+    "terra":      "#bd5f29",
+    "terra2":     "#9d4d1f",
+    "blue":       "#2a6aa8",
+    "green_tint": "#eef6f0",
+    "green_line": "#cfe4d6",
+    "terra_tint": "#f8ece1",
+    "terra_line": "#eccdb2",
+    "blue_tint":  "#eaf1f8",
+    "blue_line":  "#ccdcee",
+    "line":       "#e2e8e3",
+    "line2":      "#d3ddd5"
+  },
+  "series_order": ["g900", "g700", "terra", "g500", "blue"],
+  "fonts": {
+    "sans": "IBM Plex Sans",
+    "mono": "IBM Plex Mono",
+    "sans_stack": "\"IBM Plex Sans\", system-ui, -apple-system, Segoe UI, sans-serif",
+    "mono_stack": "\"IBM Plex Mono\", ui-monospace, Menlo, Consolas, monospace",
+    "google_fonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+  },
+  "brand": {
+    "wordmark": "DevOps&SRE",
+    "mark_svg": "compass-logo.svg",
+    "footer_mark": "◆"
+  },
+  "slide": { "w": 1280, "h": 720, "pad": 54, "ratio": "16:9" },
+  "cdn": {
+    "plotly": "https://cdn.plot.ly/plotly-2.35.2.min.js",
+    "mermaid": "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"
+  }
+}

@@ -1,0 +1,95 @@
+/* @theme forest-editorial */
+/* Tema Marp espelhando o Forest Editorial (fundo branco, marca DevOps&SRE).
+   Slides 16:9 (1280x720). A marca (logo bússola + wordmark) é fixada no topo
+   de cada slide; o indicador verde vem da diretiva `header:` (use `_header`
+   por slide). Saídas: HTML, PDF, PPTX (slides rasterizados) via marp-cli. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --g900:#0c3a25; --g800:#0f4a30; --g700:#1a7a48; --g600:#22824f; --g500:#3aa564;
+  --terra:#bd5f29; --terra2:#9d4d1f; --blue:#2a6aa8;
+  --ink:#1b2a22; --muted:#566159; --faint:#8a948c;
+  --line:#e2e8e3; --card2:#f6f8f6; --green-tint:#eef6f0; --green-line:#cfe4d6;
+}
+
+section{
+  width:1280px; height:720px;
+  background:#fff; color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  padding:118px 64px 64px;
+  border-left:6px solid var(--g700);
+  font-size:23px; line-height:1.5;
+  letter-spacing:.001em;
+}
+
+/* Marca DevOps&SRE (logo bússola via data-URI) — topo-esquerdo, fixa */
+section::before{
+  content:"DevOps&SRE";
+  position:absolute; top:40px; left:70px; padding-left:64px;
+  font-weight:700; font-size:29px; letter-spacing:-.018em; color:var(--ink);
+  line-height:52px; min-height:52px;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ccircle%20cx='50'%20cy='50'%20r='45'%20fill='%230c3a25'%20stroke='%233aa564'%20stroke-width='6'/%3E%3Cpath%20d='M50%2018%20L59%2041%20L82%2050%20L59%2059%20L50%2082%20L41%2059%20L18%2050%20L41%2041%20Z'%20fill='%2348c47f'%20stroke='%230c3a25'%20stroke-width='2'/%3E%3Ccircle%20cx='50'%20cy='50'%20r='4.5'%20fill='%230c3a25'/%3E%3C/svg%3E") no-repeat left center;
+  background-size:52px 52px;
+}
+
+/* Indicador verde do slide — vem da diretiva header: (use _header por slide) */
+section > header{
+  position:absolute; top:88px; left:134px; right:auto;
+  margin:0; padding:0; background:none; text-align:left;
+  font-weight:600; font-size:19px; color:var(--g600); letter-spacing:.004em;
+}
+
+/* Rodapé mono + número de página */
+section > footer{
+  position:absolute; bottom:26px; left:64px; margin:0; padding:0;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--faint);
+}
+section::after{
+  font-family:"IBM Plex Mono",monospace; color:var(--faint); font-size:13px;
+  right:32px; bottom:24px;
+}
+
+h1{ color:var(--g900); font-weight:700; font-size:50px; letter-spacing:-.02em; line-height:1.05; margin:.1em 0 .3em; }
+h2{ color:var(--g900); font-weight:700; font-size:32px; letter-spacing:-.012em; margin:.1em 0 .4em; }
+h3{ color:var(--g900); font-weight:700; font-size:23px; margin:.6em 0 .3em; }
+h1 strong, h2 strong, h1 em, h2 em{ color:var(--terra); font-style:normal; }
+strong{ color:var(--g900); }
+em{ color:var(--terra2); font-style:normal; }
+a{ color:var(--terra2); text-decoration:none; }
+
+ul, ol{ margin:.2em 0; }
+li{ margin:.32em 0; }
+ul li::marker{ color:var(--g500); }
+ol li::marker{ color:var(--g600); font-family:"IBM Plex Mono",monospace; }
+
+blockquote{
+  border:1px solid var(--line); border-left:5px solid var(--g700);
+  background:var(--card2); padding:18px 24px; border-radius:14px;
+  color:var(--g900); font-size:22px; font-weight:600; line-height:1.35;
+}
+blockquote strong{ color:var(--terra); }
+
+table{ border-collapse:collapse; font-size:19px; width:100%; }
+thead th{ background:var(--g900); color:#e9f1ea; font-family:"IBM Plex Mono",monospace;
+  text-transform:uppercase; font-size:12px; letter-spacing:.06em; padding:9px 14px; text-align:left; }
+tbody td{ border-bottom:1px solid var(--line); padding:9px 14px; color:var(--muted); }
+tbody tr td:first-child{ color:var(--g900); font-weight:600; }
+
+code{ font-family:"IBM Plex Mono",monospace; background:var(--green-tint); color:var(--g800);
+  padding:1px 7px; border-radius:6px; font-size:.9em; }
+pre{ background:#0c3a25; color:#e9f1ea; border-radius:12px; padding:18px 22px; font-size:18px; }
+pre code{ background:none; color:inherit; padding:0; }
+
+img{ border-radius:12px; }
+
+/* Capa / divisória — use <!-- _class: lead --> */
+section.lead{ display:flex; flex-direction:column; justify-content:center; }
+section.lead h1{ font-size:62px; margin:.3em 0 .25em; }
+section.lead p{ color:var(--muted); font-size:22px; max-width:60ch; }
+
+/* Destaque tipo card — use <!-- _class: invert --> para fundo verde */
+section.invert{ background:var(--g900); color:#eaf3ec; border-left-color:var(--g500); }
+section.invert::before{ color:#fff; }
+section.invert h1, section.invert h2, section.invert strong{ color:#fff; }
+section.invert blockquote{ background:rgba(255,255,255,.06); color:#eaf3ec; border-color:rgba(255,255,255,.2); }

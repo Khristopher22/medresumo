@@ -1,0 +1,84 @@
+---
+title: "Report Mensal · Exemplo"
+subtitle: "Plataforma DevOps · RD Saúde — Forest Editorial"
+date: "mai/2026"
+format:
+  revealjs:
+    theme: [default, theme.scss]
+    width: 1280
+    height: 720
+    margin: 0.045
+    slide-number: c/t
+    controls: false
+    progress: false
+    transition: none
+    footer: "◆ Plataforma DevOps · RD Saúde"
+    mermaid:
+      theme: base
+---
+
+## O que este modelo entrega {.smaller}
+
+Quarto = Markdown/notebook **+ código**. Diagramas e gráficos são reprodutíveis.
+
+- **Mermaid e Graphviz** nativos (sem pré-render)
+- **Gráficos por código** (Python/R) — gerados na renderização
+- Saídas: **reveal HTML**, **PPTX** e **PDF**
+
+> **Melhor para report técnico reprodutível** — quando os números vêm de
+> análise em código e você quer versionar o fonte.
+
+---
+
+## Fluxo de deflecção
+
+```{mermaid}
+flowchart TD
+    A["Entrada"] --> B["Processa"]
+    B --> C{"Decisão?"}
+    C -->|Sim| D(["Resolvido"])
+    C -->|Não| E["Escala"]
+    E --> F(["Encaminhado"])
+    classDef ok fill:#e7f1ea,stroke:#1a7a48,color:#0c3a25;
+    classDef tk fill:#f7e8da,stroke:#bd5f29,color:#9d4d1f;
+    class D ok;
+    class E,F tk;
+```
+
+---
+
+## Superfície entregue {.smaller}
+
+| Item              | Qtde | Observação              |
+| ----------------- | ---- | ----------------------- |
+| Acessos read-only | 7    | GitLab, ArgoCD, Datadog |
+| Servidores MCP    | 5    | instrumentados          |
+| Evaluators        | 3    | PII + prompt injection  |
+| Contextos         | 2    | Head Count · RACI       |
+
+::: {.callout-note}
+Para um gráfico gerado por código, descomente o bloco `{python}` no fonte
+(`report.example.qmd`) — requer Python + matplotlib no ambiente de render.
+:::
+
+<!--
+```{python}
+#| echo: false
+#| fig-align: center
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(9,3.2))
+ax.barh(["Acessos","MCP","Evaluators","Contextos"][::-1], [2,3,5,7],
+        color=["#3aa564","#bd5f29","#1a7a48","#0c3a25"])
+for s in ("top","right"): ax.spines[s].set_visible(False)
+ax.set_facecolor("none"); fig.patch.set_alpha(0)
+plt.tight_layout(); plt.show()
+```
+-->
+
+---
+
+## Valor entregue
+
+Do roteiro ao deck — com **identidade, leveza e reprodutibilidade**.
+
+Markdown + código → **HTML**, **PPTX** e **PDF** num único comando.
