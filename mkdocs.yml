@@ -6,7 +6,6 @@ site_dir: site
 
 theme:
   name: material
-  custom_dir: docs/overrides
   language: pt
   palette:
     scheme: default
